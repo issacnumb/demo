@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: channelsoft
+    url: jdbc:mysql//59.110.228.224/sell?characterEncoding=utf-8&useSSL=false
+  jpa:
+    show-sql: true
+server:
+  servlet:
+    context-path: /sell
+#logging:
+#  #日志输出格式,这个格式只作用于控制台
+#  pattern:
+#    console: "%d - %msg%n"
+#  #日志输出路径,日志文件名默认spring.log
+#  path: C:\Users\admin\Desktop\testLog
+#  #日志输出文件的文件名,文件名可自己编辑
+#  file: C:\Users\admin\Desktop\testLog\sell.log
+#  #日志级别
+#  #方案1:全部日志级别
+#  #level: debug
+#  #方案2:部分日志级别
+#  level:
+#    com.imook.LoggerTest: debug
