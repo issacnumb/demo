@@ -1,5 +1,8 @@
 package com.imook.dataObject;
 
+import lombok.Data;
+import org.hibernate.annotations.DynamicUpdate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,11 +16,14 @@ import java.util.Date;
  */
 //@Table(name = "product_category")
 @Entity
+//该注解意为动态更新 可以忽略数据库类含有的时间数据 做到动态更新updateTime
+@DynamicUpdate
+@Data
 public class ProductCategory {
 
     /** 类目id. */
     @Id
-    @GeneratedValue//这个注解相当于标记自增
+    @GeneratedValue//这个注解 标记自增
     private Integer categoryId;
 
     /** 类目名字. */
@@ -26,43 +32,18 @@ public class ProductCategory {
     /** 类目编号. */
     private Integer categoryType;
 
-    /***/
+    /** 创建时间. */
 //    private Date createTime;
 
-    /***/
+    /** 更新时间. */
 //    private Date updateTime;
 
 
-    public Integer getCategoryId() {
-        return categoryId;
+    public ProductCategory() {
     }
 
-    public void setCategoryId(Integer categoryId) {
-        this.categoryId = categoryId;
-    }
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
+    public ProductCategory(String categoryName, Integer categoryType) {
         this.categoryName = categoryName;
-    }
-
-    public Integer getCategoryType() {
-        return categoryType;
-    }
-
-    public void setCategoryType(Integer categoryType) {
         this.categoryType = categoryType;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductCategory{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                ", categoryType=" + categoryType +
-                '}';
     }
 }
